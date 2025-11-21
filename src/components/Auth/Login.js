@@ -3,7 +3,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { SparklesIcon, EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import './Auth.css';
 
-const Login = ({ onSwitchToSignup, onLoginSuccess }) => {
+const Login = ({ onNavigate, onLoginSuccess }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -158,7 +158,7 @@ const Login = ({ onSwitchToSignup, onLoginSuccess }) => {
                 Don't have an account?{' '}
                 <button
                   type="button"
-                  onClick={onSwitchToSignup}
+                  onClick={() => onNavigate('signup')}
                   className="auth-switch-link"
                   disabled={isSubmitting}
                 >

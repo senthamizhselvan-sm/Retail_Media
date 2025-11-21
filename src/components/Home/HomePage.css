@@ -63,6 +63,24 @@
   color: #1f2937;
 }
 
+.btn-signup {
+  background-color: #3b82f6;
+  color: white;
+  border: 1px solid #3b82f6;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-right: 8px;
+}
+
+.btn-signup:hover {
+  background-color: #2563eb;
+  border-color: #2563eb;
+  transform: translateY(-1px);
+}
+
 .btn-login {
   background-color: #f9fafb;
   color: #374151;
@@ -527,7 +545,20 @@
   transition: color 0.2s;
 }
 
-.footer-column a:hover {
+.footer-column button {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  text-decoration: none;
+  transition: color 0.2s;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  font-size: inherit;
+}
+
+.footer-column a:hover,
+.footer-column button:hover {
   color: white;
 }
 

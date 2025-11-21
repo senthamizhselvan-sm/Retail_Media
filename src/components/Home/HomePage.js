@@ -16,7 +16,7 @@ import {
 } from '@heroicons/react/24/outline';
 import './HomePage.css';
 
-const HomePage = () => {
+const HomePage = ({ onNavigate }) => {
   return (
     <div className="home-page">
       {/* Header */}
@@ -31,7 +31,8 @@ const HomePage = () => {
               <a href="#features">Features</a>
               <a href="#how-it-works">How It Works</a>
               <a href="#pricing">Pricing</a>
-              <button className="btn-login">Login</button>
+              <button className="btn-signup" onClick={() => onNavigate('signup')}>Sign Up</button>
+              <button className="btn-login" onClick={() => onNavigate('login')}>Login</button>
             </div>
           </div>
         </div>
@@ -51,7 +52,7 @@ const HomePage = () => {
                 media and retail platforms.
               </p>
               <div className="hero-buttons">
-                <button className="btn-primary">
+                <button className="btn-primary" onClick={() => onNavigate('signup')}>
                   Get Started
                   <ArrowRightIcon className="btn-icon" />
                 </button>
@@ -246,8 +247,8 @@ const HomePage = () => {
               </div>
               <div className="footer-column">
                 <h4>Account</h4>
-                <a href="#login">Login</a>
-                <a href="#signup">Sign Up</a>
+                <button onClick={() => onNavigate('signup')}>Sign Up</button>
+                <button onClick={() => onNavigate('login')}>Login</button>
                 <a href="#support">Support</a>
               </div>
             </div>

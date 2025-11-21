@@ -129,6 +129,33 @@ export const AuthProvider = ({ children }) => {
     setError(null);
   };
 
+  const checkAuthStatus = async () => {
+    try {
+      setLoading(true);
+      const token = localStorage.getItem('authToken');
+      if (!token) {
+        setUser(null);
+        return;
+      }
+
+      const response = await axios.get(`${API_BASE_URL}/api/auth/verify`);
+      if (response.data.success) {
+        setUser(response.data.user);
+      } else {
+        localStorage.removeItem('authToken');
+        delete axios.defaults.headers.common['Authorization'];
+        setUser(null);
+      }
+    } catch (error) {
+      console.error('Auth check failed:', error);
+      localStorage.removeItem('authToken');
+      delete axios.defaults.headers.common['Authorization'];
+      setUser(null);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const value = {
     user,
     loading,
@@ -136,6 +163,7 @@ export const AuthProvider = ({ children }) => {
     signup,
     login,
     logout,
+    checkAuthStatus,
     isAuthenticated: !!user,
   };
 
