@@ -1,0 +1,1 @@
+// Canvas slice removed - no longer needed

@@ -1,0 +1,1 @@
+// Asset slice removed - no longer needed
